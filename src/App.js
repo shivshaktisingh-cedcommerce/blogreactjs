@@ -17,7 +17,7 @@ function App() {
   const[editflag,setEditflag]=useState(0)
   const [flag, setFlag] = useState(0)
   const [loginuser, setLoginuser] = useState()
-  const [loginactive, setLoginactive] = useState(0)
+  const [loginactive, setLoginactive] = useState(false)
   const [message1, setMessage1] = useState()
   const [blogtitlemessage, setBlogtitlemessage] = useState()
   const [blogcontentmessage, setBlogcontentmessage] = useState()
@@ -44,31 +44,27 @@ function App() {
     navigate("/yourpost")
   }
 
-  const publishfun = (title, image, content) => {
+  const publishfun = ( image, content) => {
     var a = Math.random().toString(36).substr(2, 9);
-    if (title == null && content == null) {
-      setBlogtitlemessage("You forget to enter the title")
+    if (content == "") {
+      
       setBlogcontentmessage("You forget to enter the content")
 
     }
-    if (title == null && content != null) {
-      setBlogtitlemessage("You forget to enter the title")
-      setBlogcontentmessage("")
-    }
-    if (content == null && title != null) {
-      setBlogcontentmessage("You forget to enter the content")
-      setBlogtitlemessage("")
-    }
-    if (title != null && content != null) {
+    if (content != "") { 
+      
       const d = new Date();
       let hour = d.getDate();
       let minute = d.getMonth();
       let second = d.getFullYear();
       setBlogcontentmessage("")
       setBlogtitlemessage("")
-      setUserblog([...userblog, { blogid:a,title: title, image: image, content: content, date: hour + ":" + minute + ":" + second, loginuser: loginuser,email:currentloginemail }])
+      setUserblog([...userblog, { blogid:a, image: image, content: content, date: hour + "/" + minute + "/" + second, loginuser: loginuser,email:currentloginemail ,likes:0 ,color:"",comment:"" }])
       navigate('/');
     }
+
+  
+    
 
 
   }
@@ -125,8 +121,8 @@ function App() {
     user.map((e) => {
 
       if (userlogin.email == e.id && userlogin.password == e.password) {
-        setLoginuser("Welcome " + e.name)
-        setLoginactive(1)
+        setLoginuser(e.name)
+        setLoginactive(true)
         navigate('/');
         setCurrentloginemail(e.id)
       }
@@ -147,7 +143,7 @@ function App() {
     <div className="App">
       <Navbar loginactive={loginactive} loginuser={loginuser} logoutfun={logoutfun} yourpostfun={yourpostfun}/>
       <Routes>
-        <Route path="/" element={<Home userblog={userblog} />} />
+        <Route path="/" element={<Home userblog={userblog} loginactive={loginactive} setUserblog={setUserblog} loginuser={loginuser}/>} />
         <Route path="/yourpost" element={<Yourpost currentloginemail={currentloginemail} userblog={userblog} editfun={editfun} deletefun={deletefun} editblog={editblog}/>} />
         <Route path="/login" element={<Login logincheck={logincheck} message1={message1} />} />
         <Route path="/register" element={<Register save={save} message={message} />} />

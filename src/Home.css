@@ -1,3 +1,6 @@
+#homemaindiv{
+    margin-bottom:10%;
+}
 #repetitivedivhome{
     width:90%;
     margin:auto;
@@ -35,7 +38,7 @@
     font-weight:400;
 }
 #userblogimagedivinhome{
-    width:70%;
+    width:50%;
     margin:auto;
     
 }
@@ -45,11 +48,12 @@
   
 }
 #userblogcontentinhome{
-    width:100%;
+    width:50%;
+  
     margin:auto;
 }
 #pcontent{
-    width:80%;
+    width:100% !important;
     margin:auto;
     margin-top:2%;
     font-size:1.5vw;
@@ -58,7 +62,103 @@
     justify-content: center;
     padding:1vw;
 }
+#homepage_before_login_div{
+    width:80%;
+    margin:auto;
+    margin-top:3%;
+    margin-bottom:3%;
+    position:relative;
+}
+#image_id_homepage_before_login{
+    width:100%;
+    border-radius:5px;
+    opacity:0.5;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+#login_button_id_on_homepage{
+    position:absolute;
+    top: 40%;
+    left: 37%;
+    width:30%;
+    border-radius:20px;
+    border:none;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
+
+}
+#login_button_id_on_homepage:hover{
+  background-color: #679280;
+}
+#like_and_comment{
+    width:50%;
+    margin:auto;
+    padding-bottom:5% !important;
+
+}
+.like_icon{
+  font-size:2.5vw;
+  float:left;
+  cursor:pointer;
+}
+#comment_icon{
+    font-size:2.5vw;
+    float:right;
+    cursor:pointer;
+
+
+}
+#content_and_image{
+    display:flex;
+    margin:1vw;
+}
+
+#commentblog{
+    width:50%;
+    margin:auto;
+    min-height:20vw;
+    display:none;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  #comment_text_box_id{
+      width:80%;
+      border:1px solid black;
+  }
 @media only screen and (max-width: 600px) {
     #repetitivedivhome{
         width:90%;
@@ -94,6 +194,7 @@
     #span1{
         float:right;
         color:#071e22;
+        margin-right:5% !important;
         font-size:3vw !important;
         font-weight:400;
     }

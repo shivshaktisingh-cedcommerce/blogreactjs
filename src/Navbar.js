@@ -22,10 +22,10 @@ export default function Navbar(props) {
   return ( <>
     <div id= "navbarmaindiv">
         <div id="nav" >
-            <input type="button" value="B" id="btn1" onClick={homepage}/>
-            <input type="button" value="L" id="btn2" onClick={homepage}/>
-            <input type="button" value="O" id="btn3" onClick={homepage}/>
-            <input type="button" value="G" id="btn4" onClick={homepage}/>
+            <input type="button" value="M" id="btn1" onClick={homepage}/>
+            <input type="button" value="I" id="btn2" onClick={homepage}/>
+            <input type="button" value="T" id="btn3" onClick={homepage}/>
+            <input type="button" value="R" id="btn4" onClick={homepage}/>
         </div>
         <div id="search"></div>
       { props.loginactive==0?
@@ -44,15 +44,17 @@ export default function Navbar(props) {
         </div>:""}
 
         { props.loginactive==1?
-        <div id="writehere"><button id="writeherebtn" onClick={write}>Start Writing</button>
+        <div id="writehere"><button id="writeherebtn" onClick={write}>New Post</button>
         </div>:""}
 
         { props.loginactive==1?
-        <div id="welcomeuser" className="popover__wrapper"><button id="welcomeuserbtn" className="popover__title">{props.loginuser}</button>
+        <div id="welcomeuser" className="popover__wrapper"><button id="welcomeuserbtn" className="popover__title">{"Welcome" +props.loginuser}</button>
         <div className="popover__content">
                <p className="popover__message"><input type="submit" value="Logout" onClick={()=>{props.logoutfun()}}/><br/><input type="submit" value="Your Post" onClick={()=>props.yourpostfun()}/></p>
             </div>
         </div>:""}
-</div></>
+</div>
+
+</>
   )
 }
